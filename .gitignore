@@ -1,0 +1,7 @@
+__pycache__
+**/__pycache__/
+.idea/
+.venv/
+*gunicorn*
+app_rest.py
+*.yaml
