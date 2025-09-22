@@ -1,0 +1,13 @@
+steps:
+# Build the image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'asia-east1-docker.pkg.dev/flask-api-demo-472609/flask-repo/flask-api:latest', '.']
+# Push the image to Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'asia-east1-docker.pkg.dev/flask-api-demo-472609/flask-repo/flask-api:latest']
+# Deploy image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'flask-demo', '--image', 'asia-east1-docker.pkg.dev/flask-api-demo-472609/flask-repo/flask-api:latest', '--region', 'asia-east1']
+images:
+- 'asia-east1-docker.pkg.dev/flask-api-demo-472609/flask-repo/flask-api:latest'
