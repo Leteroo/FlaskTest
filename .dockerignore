@@ -1,0 +1,11 @@
+.git
+.gitignore
+.idea/
+.venv/
+Dockerfile
+__pycache__
+**/__pycache__/
+*gunicorn*
+app_rest.py
+*.md
+*.yaml
